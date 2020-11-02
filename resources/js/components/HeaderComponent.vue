@@ -2,7 +2,7 @@
     <nav>
         <div class="container">
             <div class="nav-wrapper">
-                <a href="#" class="brand-logo right">Laravel & Vue.js CRUD</a>
+                <router-link class="brand-logo right" :to="{ name: 'home' }">Laravel & Vue.js CRUD</router-link>
                 <ul id="nav-mobile" class="left hide-on-med-and-down">
                     <template v-if="!authenticated">
                         <li><router-link :to="{ name: 'login' }">Login</router-link></li>
