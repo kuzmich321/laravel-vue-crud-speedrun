@@ -44,10 +44,8 @@
                 signIn: 'auth/login'
             }),
 
-            login(e) {
-                e.preventDefault()
-
-                this.signIn(this.form).then((res) => {
+            login() {
+                this.signIn(this.form).then(() => {
                     this.$router.replace({
                         name: 'home'
                     }).catch((err) => {

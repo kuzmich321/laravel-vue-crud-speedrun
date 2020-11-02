@@ -5,6 +5,8 @@ import store from '../store/index'
 import Home from '../components/HomeComponent'
 import Login from '../components/LoginComponent'
 import Register from '../components/RegisterComponent'
+import Create from '../components/CreateComponent'
+import Edit from '../components/EditComponent'
 
 Vue.use(VueRouter)
 
@@ -31,6 +33,30 @@ export default new VueRouter({
             name: 'register',
             path: '/register',
             component: Register
+        },
+        {
+            name: 'create',
+            path: '/users/create',
+            component: Create,
+            beforeEnter: (to, from, next) => {
+                if (store.getters['auth/authenticated']) {
+                    next()
+                } else {
+                    next({name: 'login'})
+                }
+            }
+        },
+        {
+            name: 'edit',
+            path: '/users/edit/:id',
+            component: Edit,
+            beforeEnter: (to, from, next) => {
+                if (store.getters['auth/authenticated']) {
+                    next()
+                } else {
+                    next({name: 'login'})
+                }
+            }
         }
     ],
 
