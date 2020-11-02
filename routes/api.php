@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\UserController;
 
 Route::namespace('Api')->group(function() {
     Route::prefix('auth')->group(function() {
@@ -15,3 +15,5 @@ Route::namespace('Api')->group(function() {
         });
     });
 });
+
+Route::resource('users', UserController::class)->middleware('jwt.auth')->except(['create', 'edit']);
