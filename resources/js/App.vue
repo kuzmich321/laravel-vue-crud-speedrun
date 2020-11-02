@@ -18,7 +18,7 @@
 
 <style>
     body {
-        background: #f4f4f4;
+        background: #f7f7f7;
         height: 90vh;
     }
 
